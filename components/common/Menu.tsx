@@ -24,7 +24,7 @@ const menuLinks = [
 ];
 const Menu = () => {
 	const container = useRef(null);
-	const tl = useRef(null);
+	const tl: any = useRef(null);
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const toggleMenu = () => {
 		setIsMenuOpen((prev) => !prev);
