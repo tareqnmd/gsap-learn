@@ -2,7 +2,7 @@ const Page = () => {
 	return (
 		<div className="page-content">
 			<h1>
-				Home <sup>(01)</sup>
+				Contact <sup>(04)</sup>
 			</h1>
 		</div>
 	);
