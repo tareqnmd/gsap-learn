@@ -18,8 +18,10 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={inter.className}>
-				<Menu />
-				{children}
+				<main className="app-content container mx-auto">
+					<Menu />
+					{children}
+				</main>
 			</body>
 		</html>
 	);
