@@ -31,20 +31,22 @@ const Menu = () => {
 	};
 	useGSAP(
 		() => {
-			gsap.set('.menu-link-item-holder', { y: 75 });
+			gsap.set('.menu-link-item-holder', { y: 50 });
+			gsap.set('.menu-overlay', { display: 'none' });
 			tl.current = gsap
 				.timeline({ paused: true })
 				.to('.menu-overlay', {
-					duration: 1.25,
+					duration: 0.5,
+					display: 'flex',
 					clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
 					ease: 'power4.inOut',
 				})
 				.to('.menu-link-item-holder', {
 					y: 0,
-					duration: 1,
+					duration: 0.5,
 					stagger: 0.1,
 					ease: 'power4.inOut',
-					delay: -0.75,
+					delay: -0.5,
 				});
 		},
 		{ scope: container }
@@ -66,59 +68,34 @@ const Menu = () => {
 				<Link href="/">Tareq</Link>
 				<button onClick={toggleMenu}>Menu</button>
 			</div>
-			<div className="menu-overlay hidden">
-				<div className="menu-overlay-bar">
+			<div className="menu-overlay flex-col gap-4 hidden">
+				<div className="flex items-center justify-between ">
 					<div className="menu-logo">
 						<Link href="/">Tareq</Link>
 					</div>
 					<div
-						className="menu-close"
+						className="menu-close cursor-pointer"
 						onClick={toggleMenu}
 					>
-						<p>Close</p>
+						<p>&#x2715;</p>
 					</div>
 				</div>
-				<div className="menu-close-icon">
-					<p>&#x2715;</p>
-				</div>
-				<div className="menu-copy">
-					<div className="menu-links">
-						{menuLinks.map((link, index) => (
-							<div
-								key={index}
-								className="menu-link-item"
+				<ul className="menu-links ">
+					{menuLinks.map((link, index) => (
+						<li
+							className="menu-link-item-holder"
+							onClick={toggleMenu}
+							key={index}
+						>
+							<Link
+								className="menu-link"
+								href={link.path}
 							>
-								<div
-									className="menu-link-item-holder"
-									onClick={toggleMenu}
-								>
-									<Link
-										className="menu-link"
-										href={link.path}
-									>
-										{link.label}
-									</Link>
-								</div>
-							</div>
-						))}
-					</div>
-					<div className="menu-info">
-						<div className="menu-info-col">
-							<a href="#">X &#8599;</a>
-							<a href="#">Instagram &#8599;</a>
-							<a href="#">Linkedin &#8599;</a>
-							<a href="#">Behance &#8599;</a>
-							<a href="#">Dribble &#8599;</a>
-						</div>
-						<div className="menu-info-col">
-							<p>info@tareq.com</p>
-							<p>123 1234 1234</p>
-						</div>
-					</div>
-				</div>
-				<div className="menu-preview">
-					<p>View Showreel</p>
-				</div>
+								{link.label}
+							</Link>
+						</li>
+					))}
+				</ul>
 			</div>
 		</nav>
 	);
