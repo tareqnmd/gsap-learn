@@ -69,21 +69,18 @@ const Menu = () => {
 				<button onClick={toggleMenu}>Menu</button>
 			</div>
 			<div className="menu-overlay flex-col gap-4 hidden">
-				<div className="flex items-center justify-between ">
-					<div className="menu-logo">
-						<Link href="/">Tareq</Link>
-					</div>
+				<div className="absolute right-4 top-2 z-10">
 					<div
-						className="menu-close cursor-pointer"
+						className="menu-close cursor-pointer text-4xl"
 						onClick={toggleMenu}
 					>
 						<p>&#x2715;</p>
 					</div>
 				</div>
-				<ul className="menu-links ">
+				<ul className="menu-links grid gap-4">
 					{menuLinks.map((link, index) => (
 						<li
-							className="menu-link-item-holder"
+							className="menu-link-item-holder text-6xl"
 							onClick={toggleMenu}
 							key={index}
 						>
