@@ -3,6 +3,8 @@ nav {
 }
 .menu-overlay {
 	background-color: blueviolet;
+	/* clip-path: polygon(0 0, 100% 0%, 100% 0, 0 0); */
+	clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
 	padding: 20px;
 	position: fixed;
 	top: 0;

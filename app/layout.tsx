@@ -18,7 +18,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={inter.className}>
-				<main className="app-content container mx-auto">
+				<main className="app-content container px-3 mx-auto">
 					<Menu />
 					{children}
 				</main>
